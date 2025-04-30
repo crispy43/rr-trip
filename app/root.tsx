@@ -15,6 +15,7 @@ import { getLanguageSession, getThemeSession } from './.server/services/session.
 import type { Route } from './+types/root';
 import { LanguageProvider } from './hooks/use-language';
 import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from './hooks/use-theme';
+import styles from './index.css?url';
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const [{ getLanguage }, { getTheme }] = await Promise.all([
@@ -35,6 +36,10 @@ export const links: LinksFunction = () => {
     {
       rel: 'stylesheet',
       href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
+    },
+    {
+      rel: 'stylesheet',
+      href: styles,
     },
   ];
 };

@@ -1,9 +1,13 @@
-import { index, prefix, route, type RouteConfig } from '@react-router/dev/routes';
+import { index, layout, prefix, route, type RouteConfig } from '@react-router/dev/routes';
 
 // TODO: 경로 정의 (https://reactrouter.com/start/framework/routing)
 export default [
   // * Pages
-  index('routes/pages/home.tsx'),
+  layout('routes/layouts/default-layout.tsx', [
+    index('routes/pages/home/route.tsx'),
+    route('product', 'routes/pages/product/route.tsx'),
+    route('reservation', 'routes/pages/reservation/route.tsx'),
+  ]),
 
   // * APIs
   ...prefix('api', [
